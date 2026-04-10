@@ -1,3 +1,20 @@
+Welcome to the world of SAP learning - All your technical skills
+www.anubhavtrainings.com
+contact@anubhavtrainings.com
+Getting Started - Anubhav Trainings
+SAP BTP CAPM Training | SAP Cloud Foundry Training
+https://www.anubhavtrainings.com/scp-cloud-platform-training
+![alt text](https://static.wixstatic.com/media/74c3a1_630acacc73ec437fa3b34f61373a0d70~mv2.gif)
+SAP BTP RAP Training | ABAP on Cloud with Embedded Steampunk
+https://www.anubhavtrainings.com/restful-programming-training
+![alt text](https://i.ytimg.com/vi/DaJzYTMsE8o/hqdefault.jpg)
+SAP BTP Gen AI Training - Create Amazing real time AI Use cases
+https://www.anubhavtrainings.com/btp-gen-ai-training
+![alt text](https://static.wixstatic.com/media/74c3a1_bf32c85e637d45cea2bd6c113e8997d3~mv2.gif)
+SAP BTP Build Process Automation - Use Robotic Process Automation to bring intelligence
+https://www.anubhavtrainings.com/sap-build-process-automation
+![alt text](https://static.wixstatic.com/media/74c3a1_564519c6542b42d595fd7c349bec9394~mv2.jpg)
+
 mkdir s4hext
 
 cd s4hext
@@ -14,12 +31,18 @@ npm install @sap-cloud-sdk/odata-v2
 npx generate-odata-client --transpile --input srv/external --outputDir srv/src/generated
 
 npm install dotenv
+
 --Create .env file like below, in main folder not inside srv
+
     USER=***
     PASSWORD=***
+
     URL=https://s4hana10.saraswatitechnologies.in:44310
+
 --in code consume as below
+
             require('dotenv').config();
+
             "url": process.env.URL,
             "username": process.env.USER,
             "password": process.env.PASSWORD
