@@ -1,0 +1,48 @@
+{
+  "name": "s4hext",
+  "version": "1.0.0",
+  "dependencies": {
+    "@sap-cloud-sdk/connectivity": "^4",
+    "@sap-cloud-sdk/http-client": "^4.5.1",
+    "@sap-cloud-sdk/resilience": "^4",
+    "@sap/cds": "^9",
+    "dotenv": "^17.4.1",
+    "moment": "^2.30.1",
+    "@sap/xssec": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^2",
+    "@sap-cloud-sdk/generator": "^4.5.1",
+    "@sap/cds-dk": "^9"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "private": true,
+  "cds": {
+    "requires": {
+      "OP_API_SALES_ORDER_SRV_0001": {
+        "kind": "odata-v2",
+        "model": "srv/external/OP_API_SALES_ORDER_SRV_0001"
+      },
+      "NorthWind": {
+        "kind": "odata",
+        "model": "srv/external/NorthWind",
+        "credentials": {
+          "url": "https://services.odata.org/Experimental/OData/OData.svc"
+        },
+        "[production]": {
+          "credentials": {
+            "destination": "NorthWind"
+          }
+        }
+      },
+      "[production]": {
+        "auth": {
+          "kind": "xsuaa",
+          "restrict_all_services": false
+        }
+      }
+    }
+  }
+}

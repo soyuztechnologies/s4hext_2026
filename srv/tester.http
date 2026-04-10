@@ -1,0 +1,28 @@
+http://localhost:4004/odata/v4/CatalogService/MySalesOrder
+
+###Load prod
+http://localhost:4004/odata/v4/AnubhavNorth/Products
+
+###POST 
+POST http://localhost:4004/odata/v4/CatalogService/MySalesOrder
+Content-Type: application/json
+
+{
+        "SalesOrderType": "OR",
+        "SalesOrganization": "BMGB",
+        "DistributionChannel": "DB",
+        "OrganizationDivision": "AC",
+        "SalesDistrict": "000001",
+        "SoldToParty": "49",
+        "SalesOrderDate": "2026-04-05",
+        "to_Item": {
+            "results": [
+            {
+                "SalesOrderItem": "10",
+                "Material": "220",
+                "RequestedQuantity": "5",
+                "RequestedQuantityUnit": "PC"
+            }
+            ]
+        }
+}
