@@ -48,20 +48,31 @@ npm install dotenv
             "password": process.env.PASSWORD
 
 cf create-service xsuaa application myxsuaa 
+
 cf create-service-key myxsuaa myxsuaa-key 
+
 cds bind --to myxsuaa:myxsuaa-key 
+
 cf create-service destination lite mydest
+
 cf create-service-key mydest mydest-key 
+
 cds bind --to mydest:mydest-key 
+
 cds run --profile hybrid
+
 ===============================================================================
 
 https://services.odata.org/Experimental/OData/OData.svc/
 
 1. download metadata and put in external folder
+
 2. install npm install @sap-cloud-sdk/http-client
+
 3. cds import to create csn
+
 4. add code to package json
+
 "cds": {
     "requires": {
       "OP_API_SALES_ORDER_SRV_0001": {
@@ -88,20 +99,20 @@ https://services.odata.org/Experimental/OData/OData.svc/
       }
     }
   }
+
 3. create cds file
+
 using {NorthWind as external} from './external/NorthWind.csn';
-
 service AnubhavNorth @(path:'AnubhavNorth') {
-
     @readonly
     entity Products as projection on external.Products {
         key ID, Name, Description, ReleaseDate, DiscontinuedDate, Rating, Price
     };
-
 }
-4. create js file
-const cds = require('@sap/cds');
 
+4. create js file
+
+const cds = require('@sap/cds');
 module.exports = cds.service.impl(async function() {
 	const { Products } = this.entities;
 	const service = await cds.connect.to('NorthWind');
@@ -111,7 +122,7 @@ module.exports = cds.service.impl(async function() {
 	});
 });
 
-
 -----------
 mbt build
+
 cf deploy
